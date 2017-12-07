@@ -1,5 +1,10 @@
 package tornado
 
+import javafx.application.Application
+import tornadofx.App
+
 fun main(args: Array<String>) {
-    println("Hey hey")
+    Application.launch(Main::class.java, *args);
 }
+
+class Main : App(MainView::class)
