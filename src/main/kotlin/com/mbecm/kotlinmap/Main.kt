@@ -11,12 +11,15 @@ import java.nio.file.Files
 class Main : Application() {
     override fun start(primaryStage: Stage?) {
         primaryStage?.apply {
-            scene = Scene(StackPane(MainView().apply { children.add(Button("ssij")) }), 300.0, 300.0)
+            scene = Scene(BaseMap(MainView()), 500.0, 500.0)
 //            scene = Scene(StackPane(Button("ble")), 300.0,300.0)
             show()
         }
     }
 }
+
+const val OSM_TILE_URL = "http://tile.openstreetmap.org/"
+//const val OSM_TILE_URL = "tile.openstreetmap.org/${z}/${x}/${y}.png"
 
 fun main(args: Array<String>) {
     test(2) { age, dd ->
