@@ -19,6 +19,7 @@ class Main : Application() {
 }
 
 const val OSM_TILE_URL = "http://tile.openstreetmap.org/"
+const val OSM_CACHE= "/.mcache/osm/"
 //const val OSM_TILE_URL = "tile.openstreetmap.org/${z}/${x}/${y}.png"
 
 fun main(args: Array<String>) {
