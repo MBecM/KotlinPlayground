@@ -1,5 +1,6 @@
 package com.mbecm.kotlinmap
 
+import javafx.scene.input.MouseButton
 import javafx.scene.layout.StackPane
 
 /**
@@ -16,6 +17,10 @@ open class BaseMap(mainMap: MainView) : StackPane(mainMap) {
         setOnMousePressed {
             x = it.sceneX - mainMap.translateX
             y = it.sceneY - mainMap.translateY
+
+            if(it.button == MouseButton.SECONDARY) {
+                mainMap.loadTiles()
+            }
         }
         setOnMouseDragged {
             mainMap.translateX = it.sceneX - x
