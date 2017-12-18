@@ -1,12 +1,13 @@
 package com.mbecm.kotlinmap
 
 import javafx.scene.input.MouseButton
+import javafx.scene.layout.Region
 import javafx.scene.layout.StackPane
 
 /**
  * @author Mateusz Becker
  */
-open class BaseMap(mainMap: MainView) : StackPane(mainMap) {
+open class BaseMap(mainMap: MainView) : Region() {
     open val my: Int = 6
     var f: Int? = null;
 
@@ -14,6 +15,7 @@ open class BaseMap(mainMap: MainView) : StackPane(mainMap) {
     var y = 0.0
 
     init {
+        children.add(mainMap)
         setOnMousePressed {
             x = it.sceneX - mainMap.translateX
             y = it.sceneY - mainMap.translateY
