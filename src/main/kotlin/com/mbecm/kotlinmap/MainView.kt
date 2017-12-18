@@ -36,14 +36,14 @@ class MainView : Group() {
 
     internal fun loadTiles() {
         children.clear()
-        val width :Int = parent?.layoutBounds?.width?.toInt() ?: 0
-        val height :Int = parent?.layoutBounds?.height?.toInt() ?: 0
+        val width: Int = parent?.layoutBounds?.width?.toInt() ?: 0
+        val height: Int = parent?.layoutBounds?.height?.toInt() ?: 0
         System.err.println(-translateX)
         val minX = Math.max(0, Math.abs(-translateX / 256).toInt()).toLong();
-        val maxX = Math.min(maxXForZoom, minX.toInt() + width).toLong();
+        val maxX = Math.min(maxXForZoom, Math.abs((-translateX + width) / 256).toInt()).toLong();
 //        val maxX = Math.min(maxXForZoom, Math.abs((-translateX + 500) / 256).toInt()).toLong();
         val minY = Math.max(0, (-translateY / 256).toInt()).toLong();
-        val maxY = Math.min(maxYForZoom, minY.toInt() + height).toLong();
+        val maxY = Math.min(maxYForZoom, Math.abs((-translateY + height) / 256).toInt()).toLong();
 
         System.err.println("" + minX + ", " + maxX);
 
